@@ -1,111 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap');
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+    --hatter: #0b0a12;        
+    --kartya: #16141f;       
+    --vonal: #2a2638;         
+    --szoveg: #f1eff8;        
+    --halvany: #9d98b3;      
+    --neon: #ff2e88;        
+    --neon2: #7c4dff;         
+    --atmenet: linear-gradient(135deg, var(--neon), var(--neon2));
+    --cim-betu: 'Outfit', 'Segoe UI', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+* {
+  box-sizing:  border-box;
 }
 
-body {
+body{
   margin: 0;
+  color: var(--szoveg);
+  font-family: 'Inter','Segoe UI',Arial,sans-serif;
+   background:
+        radial-gradient(circle at 0% 0%, rgba(124, 77, 255, 0.18), transparent 40%),
+        radial-gradient(circle at 100% 100%, rgba(255, 46, 136, 0.12), transparent 40%),
+        var(--hatter);
+  background-attachment: fixed;
+  min-height:100vh ;
+}
+a{
+  color: var(--cim-betu);
+}
+h1,h2,h3{
+  font-family: var(--cim-betu);
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+.fejlec{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display:  flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(11, 10, 18, 0.75);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--vonal);
 }
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
+.fejlec h1{
+  margin: 0;
   font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+  font-weight: 800;
 }
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.fejlec h1 a{
+  display: flex;
+  align-items: center;
+  gap:10px;
+  text-decoration: none;
+  background: var(--atmenet);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-code {
+
+.fejlec h1 a::before{
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--neon);
+  animation: radar 2s infinite;
+}
+
+@keyframes radar {
+  0% {box-shadow:  0 0 0 0 rgba(255, 46, 136, 0.7);}
+  70% {box-shadow: 0 0 0 14px rgba(255, 46, 136, 0) ;}
+  100% {box-shadow: 0 0 0 0 rgba(255, 46, 136, 0) ;}
+}
+
+.gomb {
+  background: var(--kartya);
+  color: var(--szoveg);
+  border: 1px solid var(--vonal);
+  border-radius: 999px;
+  padding: 9px 18px;
   font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration:  none;
+  display: inline-block;
+  transition: all 0.25s;
+}
+.gomb:hover{
+  border-color: var(--neon);
+  transform: translateY(-1px);
+}
+.gomb.fo{
+  background: var(--atmenet);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 46, 136, 0.45) ;
+}
+main{
+  padding: 20px;
 }
